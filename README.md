@@ -67,11 +67,13 @@ gobuster dir -u https://your-username.github.io/ \
 * **`-t`** → Threads (speed)
 * **`-x`** → File extensions to check
 
-Basic directory example
+# Basic directory example
 
 Scan a GitHub Pages site (or any website) for common files and folders:
 ```
 gobuster dir -u https://your-username.github.io/ \
+
+```
   -w /usr/share/seclists/Discovery/Web-Content/common.txt \
   -t 50 \
   -x html,php,txt,zip,env
@@ -92,24 +94,28 @@ Example: finding .git on a Pages site
 
 Many testers set up a local playground or find misconfigured gh-pages. To look for an exposed .git:
 
+```
 gobuster dir -u https://demo-site.github.io/ -w /usr/share/wordlists/dirb/common.txt -x git -t 30
-
+```
 If .git/ is accessible, use git-dumper or wget to retrieve the repo only on assets you own or with explicit permission.
 
-Subdomain enumeration
+# Subdomain enumeration
 
 Quick DNS brute force against example.com:
 
+```
 gobuster dns -d example.com -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt -t 50
-
+```
 Useful for finding dev.example.com, api.example.com, etc.
 
-Virtual-host (vhost) enumeration
+# Virtual-host (vhost) enumeration
 
 Some servers respond differently depending on the Host: header:
 
+```
 gobuster vhost -u http://example.com -w vhosts.txt -t 40
-Wordlists & tips
+```
+# Wordlists & tips
 
 SecLists is the go-to source: Discovery/Web-Content and Discovery/DNS folders.
 
@@ -125,11 +131,11 @@ Practical GitHub Pages note
 
 If you’re testing GitHub Pages you control (like a blog you’re making), Gobuster is great for verifying you didn’t accidentally publish sensitive files (e.g., secret.txt, backup.zip or .env in docs/). Create a test backup file and ensure it’s not reachable publicly, or purposely host a honeypot file to practice discovery techniques on your own assets.
 
-Safety & legal reminder
+# Safety & legal reminder
 
 Never run Gobuster against domains or services you don't own or don’t have explicit permission to test. Automated brute-force scanning can be considered abusive by hosting providers and may violate terms of service or local law. Use a sandbox/test repo or get written permission.
 
-Practical workflow (example)
+# Practical workflow (example)
 
 Recon: passive (WHOIS, crt.sh, GitHub search) → identify targets.
 
@@ -151,15 +157,20 @@ Slow or blocked? Lower -t, add delays, or use authenticated requests (if testing
 
 CLI cheatsheet
 # Directory brute-force
+```
 gobuster dir -u https://target/ -w wordlist.txt -t 50 -x php,html,txt
 
-
+```
 # DNS/subdomain brute-force
+```
 gobuster dns -d target.com -w subdomains.txt -t 50
 
-
+```
 # Virtual host discovery
+```
 gobuster vhost -u http://target -w vhosts.txt -t 40
+```
+
 Where to go next
 
 Learn how to build or modify custom wordlists.
@@ -168,11 +179,11 @@ Combine Gobuster with wfuzz or ffuf for more advanced fuzzing.
 
 Set up a safe CTF-style target or GitHub Pages sandbox to practise.
 
-Conclusion
+# Conclusion
 
 Gobuster is a simple but powerful discovery tool — extremely useful for web recon when used responsibly. If you’re writing a Gobuster blog post, include clear examples, safety/legal guidance, and a real-world demo (on a sandbox repo). Readers love a “play along” section where they can run commands on a sample site you provide.
 
-Excerpt / Tweet
+# Excerpt / Tweet
 
 Excerpt: Learn Gobuster: fast directory, virtual host, and subdomain discovery for web testing. Install, run, and use safe examples — including GitHub Pages—plus wordlists and tips.
 Tweet: New on the blog — Gobuster 101: install, run, and hunter-tips for directory & subdomain discovery (with GitHub Pages demo). #infosec #CTF
