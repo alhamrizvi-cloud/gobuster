@@ -21,9 +21,13 @@ Install
 If you use Kali / Parrot / Ubuntu:
 
 # recommended: install from package (if available) or build via go
+## 🚀 Installation
+
+**For Kali / Ubuntu:**
+
+```bash
 sudo apt update
 sudo apt install gobuster
-
 From source (requires Go):
 
 go install github.com/OJ/gobuster/v3@latest
