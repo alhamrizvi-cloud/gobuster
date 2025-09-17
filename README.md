@@ -181,7 +181,7 @@ Set up a safe CTF-style target or GitHub Pages sandbox to practise.
 
 # Conclusion
 
-Gobuster is a simple but powerful discovery tool — extremely useful for web recon when used responsibly. If you’re writing a Gobuster blog post, include clear examples, safety/legal guidance, and a real-world demo (on a sandbox repo). Readers love a “play along” section where they can run commands on a sample site you provide.
+Gobuster is a simple but powerful discovery tool and extremely useful for web recon when used responsibly. If you’re writing a Gobuster blog post, include clear examples, safety/legal guidance, and a real-world demo (on a sandbox repo). Readers love a “play along” section where they can run commands on a sample site you provide.
 
 # Excerpt / Tweet
 
